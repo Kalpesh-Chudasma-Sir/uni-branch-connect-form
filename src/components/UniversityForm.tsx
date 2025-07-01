@@ -34,6 +34,8 @@ const UniversityForm = () => {
   const selectedBranch = watch("branch");
 
   const onSubmit = async (data: FormData) => {
+    console.log('jhhggyfytfyfytty');
+    
     setIsSubmitting(true);
     
     try {
@@ -69,7 +71,8 @@ const UniversityForm = () => {
     if (!submissionResult?.formData || !submissionResult?.inviteLink) return;
     
     const message = generateWhatsAppMessage(
-      submissionResult.formData.fullName,
+      submissionResult.formData.firstname,
+      submissionResult.formData.lastname,
       submissionResult.formData.branch,
       submissionResult.inviteLink
     );
@@ -81,7 +84,8 @@ const UniversityForm = () => {
     if (!submissionResult?.formData || !submissionResult?.inviteLink) return;
     
     const message = generateWhatsAppMessage(
-      submissionResult.formData.fullName,
+      submissionResult.formData.firstname,
+      submissionResult.formData.lastname,
       submissionResult.formData.branch,
       submissionResult.inviteLink
     );
@@ -157,20 +161,39 @@ const UniversityForm = () => {
       </CardHeader>
       <CardContent className="p-8">
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+          <div className="grid  md:grid-cols-2 gap-6">
             <div className="space-y-2">
-              <Label htmlFor="fullName" className="text-sm font-semibold text-gray-700">
-                Full Name *
+              <Label htmlFor="firstname" className="text-sm font-semibold text-gray-700">
+                First Name
               </Label>
               <Input
-                id="fullName"
-                {...register("fullName")}
-                placeholder="Enter your full name"
+                id="firstname"
+                {...register("firstname")}
+                placeholder="Enter your firstname name"
                 className="transition-all duration-200 focus:ring-2 focus:ring-blue-500"
               />
-              {errors.fullName && (
-                <p className="text-sm text-red-600">{errors.fullName.message}</p>
+              {errors.firstname && (
+                <p className="text-sm text-red-600">{errors.firstname.message}</p>
               )}
+            </div>
+            
+
+            
+            <div className="space-y-2">
+              <Label htmlFor="lastname" className="text-sm font-semibold text-gray-700">
+                Last Name
+              </Label>
+              <Input
+                id="lastname"
+                {...register("lastname")}
+                placeholder="Enter your Surname"
+                className="transition-all duration-200 focus:ring-2 focus:ring-blue-500"
+              />
+              {errors.firstname && (
+                <p className="text-sm text-red-600">{errors.lastname.message}</p>
+              )}
+            </div>
             </div>
 
             <div className="space-y-2">
@@ -187,7 +210,7 @@ const UniversityForm = () => {
                 <p className="text-sm text-red-600">{errors.phoneNumber.message}</p>
               )}
             </div>
-          </div>
+
 
           <div className="space-y-2">
             <Label htmlFor="email" className="text-sm font-semibold text-gray-700">
@@ -205,38 +228,6 @@ const UniversityForm = () => {
             )}
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="space-y-2">
-              <Label htmlFor="enrollmentNumber" className="text-sm font-semibold text-gray-700">
-                Enrollment Number *
-              </Label>
-              <Input
-                id="enrollmentNumber"
-                {...register("enrollmentNumber")}
-                placeholder="Enter enrollment number"
-                className="transition-all duration-200 focus:ring-2 focus:ring-blue-500"
-              />
-              {errors.enrollmentNumber && (
-                <p className="text-sm text-red-600">{errors.enrollmentNumber.message}</p>
-              )}
-            </div>
-
-            <div className="space-y-2">
-              <Label htmlFor="registrationNumber" className="text-sm font-semibold text-gray-700">
-                Registration Number *
-              </Label>
-              <Input
-                id="registrationNumber"
-                {...register("registrationNumber")}
-                placeholder="Enter registration number"
-                className="transition-all duration-200 focus:ring-2 focus:ring-blue-500"
-              />
-              {errors.registrationNumber && (
-                <p className="text-sm text-red-600">{errors.registrationNumber.message}</p>
-              )}
-            </div>
-          </div>
-
           <div className="space-y-2">
             <Label htmlFor="branch" className="text-sm font-semibold text-gray-700">
               Branch *
@@ -246,7 +237,7 @@ const UniversityForm = () => {
                 <SelectValue placeholder="Select your branch" />
               </SelectTrigger>
               <SelectContent className="bg-white border shadow-lg">
-                <SelectItem value="CE">Civil Engineering (CE)</SelectItem>
+                <SelectItem value="CE">Computer Engineering (CE)</SelectItem>
                 <SelectItem value="CSE">Computer Science Engineering (CSE)</SelectItem>
                 <SelectItem value="EC">Electronics & Communication (EC)</SelectItem>
                 <SelectItem value="CIVIL">Civil Engineering (CIVIL)</SelectItem>

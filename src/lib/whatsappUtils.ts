@@ -15,11 +15,12 @@ export const getBranchInviteLink = (branch: FormData["branch"]) => {
 };
 
 export const generateWhatsAppMessage = (
-  fullName: string,
+ firstname: string,
+  lastname: string,
   branch: string,
   inviteLink: string
 ) => {
-  return `Hi ${fullName}! 🎓\n\nWelcome to the ${branch} Branch WhatsApp Group!\n\nJoin here: ${inviteLink}\n\nBest regards,\nUniversity Team`;
+  return `Hi ${firstname}! 🎓\n\nWelcome to the ${branch} Branch WhatsApp Group!\n\nJoin here: ${inviteLink}\n\nBest regards,\nUniversity Team`;
 };
 
 export const openWhatsAppWithMessage = (message: string, phoneNumber?: string) => {

@@ -7,7 +7,7 @@ const Index = () => {
       <div className="container mx-auto">
         <div className="text-center mb-8">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
-            University Portal
+            Atmiya University
           </h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Connect with your branch mates through our official WhatsApp groups. 

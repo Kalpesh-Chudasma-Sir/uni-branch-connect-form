@@ -2,7 +2,8 @@
 import { z } from "zod";
 
 export const formSchema = z.object({
-  fullName: z.string().min(2, "Full name must be at least 2 characters"),
+  firstname: z.string().min(2, "Full name must be at least 2 characters"),
+  lastname: z.string().min(2, "Full name must be at least 2 characters"),
   phoneNumber: z
     .string()
     .regex(/^[6-9]\d{9}$/, "Please enter a valid 10-digit Indian phone number"),
