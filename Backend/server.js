@@ -15,7 +15,7 @@ function generateRegistrationNumber() {
 
 // MongoDB Connection
 const mongoUri =
-  process.env.MONGODB_URI ;
+  process.env.MONGODB_URL ;
 
 mongoose
   .connect(mongoUri)
