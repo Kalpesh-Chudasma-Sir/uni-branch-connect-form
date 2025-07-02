@@ -15,7 +15,7 @@ function generateRegistrationNumber() {
 
 // MongoDB Connection
 const mongoUri =
-  process.env.MONGODB_URI || "mongodb://localhost:27017/university_project";
+  process.env.MONGODB_URI ;
 
 mongoose
   .connect(mongoUri)
